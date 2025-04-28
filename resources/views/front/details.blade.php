@@ -37,11 +37,12 @@
 				<a id="Author" href="{{ route('front.author', $post->author->slug) }}" class="w-fit h-fit">
 					<div class="flex items-center gap-3">
 						<div class="w-10 h-10 overflow-hidden rounded-full">
-							<img src="{{ Storage::url($post->thumbnail) }}" class="object-cover w-full h-full" alt="avatar">
+							<img src="{{ Storage::url($post->thumbnail) }}" class="object-cover w-full h-full" alt="Gambar">
 						</div>
 						<div class="flex flex-col">
 							<p class="font-semibold text-sm leading-[21px]">{{ $post->author->username }}</p>
-							<p class="text-xs leading-[18px] text-[#A3A6AE]">{{ $post->author->occupation }}</p>
+							<p class="text-xs leading-[18px] text-[#A3A6AE]">{{ $post->author->Pekerjaan }}</p>
+                         
 						</div>
 					</div>
 				</a>

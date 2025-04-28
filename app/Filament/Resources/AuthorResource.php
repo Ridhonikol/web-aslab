@@ -29,10 +29,13 @@ class AuthorResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('occupation')
+                Forms\Components\TextInput::make('Pekerjaan')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\FileUpload::make('avatar')
+                    Forms\Components\TextInput::make('Jabatan')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\FileUpload::make('Gambar')
                     ->required()
                     ->image(),
             ]);
@@ -46,9 +49,11 @@ class AuthorResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('occupation')
+                Tables\Columns\TextColumn::make('Pekerjaan')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('avatar'),
+                Tables\Columns\TextColumn::make('Jabatan')
+                    ->searchable(),
+                Tables\Columns\ImageColumn::make('Gambar'),
                 Tables\Columns\TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()

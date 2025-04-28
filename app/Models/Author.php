@@ -15,8 +15,9 @@ class Author extends Model
     protected $fillable = [
         'username',
         'slug',
-        'occupation',
-        'avatar'];
+        'Pekerjaan',
+        'Jabatan',
+        'Gambar'];
 
     public function setNameAttribute($value)
     {

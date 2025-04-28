@@ -30,11 +30,12 @@
 			<h1 class="text-4xl leading-[45px] font-bold">/</h1>
 			<div class="flex items-center gap-3">
 				<div class="w-[60px] h-[60px] flex shrink-0 rounded-full overflow-hidden">
-					<img src="{{ Storage::url($authors->first()->avatar) }}" alt="profile photo" />
+					<img src="{{ Storage::url($authors->first()->Gambar) }}" alt="profile photo" />
 				</div>
 				<div class="flex flex-col">
 					<p class="text-lg leading-[27px] font-semibold">{{ $authors->first()->username }}</p>
-					<span class="text-[#A3A6AE]">{{ $authors->first()->occupation }}</span>
+					<span class="text-[#A3A6AE]">{{ $authors->first()->Pekerjaan }}</span>
+                   
 				</div>
 			</div>
 		</div>

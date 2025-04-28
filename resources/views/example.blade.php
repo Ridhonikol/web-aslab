@@ -111,7 +111,7 @@
 				<a href="{{ route('front.author', $author->slug) }}" class="card-authors">
 					<div class="rounded-[20px] border border-[#EEF0F7] p-[26px_20px] flex flex-col items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
 						<div class="w-[70px] h-[70px] flex shrink-0 rounded-full overflow-hidden">
-							<img src="{{ Storage::url($author->avatar) }}" class="object-cover w-full h-full" alt="avatar" />
+							<img src="{{ Storage::url($author->Gambar) }}" class="object-cover w-full h-full" alt="Gambar" />
 						</div>
 						<div class="flex flex-col gap-1 text-center">
 							<p class="font-semibold">{{ $author->username }}</p>

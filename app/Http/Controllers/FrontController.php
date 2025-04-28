@@ -51,16 +51,24 @@ class FrontController extends Controller
         // ->take(1)
         ->first();
 
-        $prestasi_posts = Post::whereHas('category', function($query){
-            $query->where('judul', 'Prestasi');
+        $tentang_kami_posts = Post::whereHas('category', function($query){
+            $query->where('judul', 'tentang kami');
         })
         ->where('is_featured', 'not_featured')
         ->latest()
         ->take(3)
         ->get();
 
+        $tentang_kami_featured_posts = Post::whereHas('category', function($query){
+            $query->where('judul', 'tentang kami');
+        })
+        ->where('is_featured', 'featured')
+        ->inRandomOrder()
+        // ->take(1)
+        ->first();
+
         return view('front.index',
-        compact('kegiatan_featured_posts', 'categories','authors', 'kegiatan_posts', 'posts', 'featured_posts', 'banner_advertisements', 'prestasi_posts'));
+        compact('kegiatan_featured_posts', 'categories','authors', 'kegiatan_posts', 'posts', 'featured_posts', 'banner_advertisements', 'tentang_kami_posts','tentang_kami_featured_posts'));
 
 }
 

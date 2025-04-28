@@ -19,7 +19,7 @@
             <div class="flex w-6 h-6 shrink-0">
                 <img src="{{ Storage::url($item_category->icon) }}" alt="icon" />
             </div>
-            <span>{{ $item_category->judul }}</span>
+            <span style="color:red">{{ $item_category->judul }}</span>
         </a>
         @endforeach
     </nav>

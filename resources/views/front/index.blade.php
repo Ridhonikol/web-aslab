@@ -26,7 +26,7 @@
                 @forelse ($featured_posts as $post)
                 <div class="featured-news-card relative w-full h-[550px] flex shrink-0 overflow-hidden">
 					<img src="{{ Storage::url($post->thumbnail)}}" class="absolute object-cover w-full h-full thumbnail" alt="icon" />
-					<div class="w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(0,0,0,0.9)] absolute z-10"></div>
+					<div class="w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(10, 10, 10, 0.9)] absolute z-10"></div>
 					<div class="card-detail max-w-[1130px] w-full mx-auto flex items-end justify-between pb-10 relative z-20">
 						<div class="flex flex-col gap-[10px]">
 							<p class="text-white">Featured</p>
@@ -88,7 +88,7 @@
 				<a href="{{route('front.author' ,$author->slug)}}" class="card-authors">
 					<div class="rounded-[20px] border border-[#EEF0F7] p-[26px_20px] flex flex-col items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
 						<div class="w-[70px] h-[70px] flex shrink-0 rounded-full overflow-hidden">
-							<img src="{{storage::url($author->avatar)}}" class="object-cover w-full h-full" alt="avatar" />
+							<img src="{{storage::url($author->Gambar)}}" class="object-cover w-full h-full" alt="Gambar" />
 						</div>
 						<div class="flex flex-col gap-1 text-center">
 							<p class="font-semibold">{{ $author->username}}</p>
@@ -155,7 +155,7 @@
 				</div>
 			</div>
 		</section>
-		<section id="Latest-tentang Kami" class="max-w-[1130px] mx-auto flex flex-col gap-[30px] mt-[70px]">
+		<section id="Latest-tentang kami" class="max-w-[1130px] mx-auto flex flex-col gap-[30px] mt-[70px]">
 			<div class="flex items-center justify-between">
 				<h2 class="font-bold text-[26px] leading-[39px]">
 					Latest For You <br />
@@ -165,57 +165,47 @@
 			</div>
 			<div class="flex items-center justify-between h-fit">
 				<div class="featured-news-card relative w-full h-[424px] flex flex-1 rounded-[20px] overflow-hidden">
-					<img src="{{Storage::url($post->thumbnail)}}" class="absolute object-cover w-full h-full thumbnail" alt="icon" />
-					<div class="w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(0,0,0,0.9)] absolute z-10"></div>
+					<img src="{{Storage::url($tentang_kami_featured_posts->thumbnail)}}" class="absolute object-cover w-full h-full thumbnail" alt="icon" />
+					<div class="w-full h-full bg-gradient-to-b from-[rgba(250, 250, 242, 0.9)] to-[rgba(42, 6, 241, 0.9)] absolute z-10"></div>
+
 					<div class="card-detail w-full flex items-end p-[30px] relative z-20">
 						<div class="flex flex-col gap-[10px]">
 							<p class="text-white">Featured</p>
-							<a href="details.html" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">Anggota Aslab 2025</a>
-							<p class="text-white">{{$post->created_at->format('M d, Y')}}</p>
+							<a href="details.html" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ substr($tentang_kami_featured_posts->judul, 0,60)}}{{ strlen($tentang_kami_featured_posts->judul)>60 ?'...':''}}</a>
+							<p class="text-white">{{ $kegiatan_featured_posts->created_at->format('M d, Y')}}</p>
 						</div>
 					</div>
 				</div>
 				<div class="h-[424px] w-fit px-5 overflow-y-scroll overflow-x-hidden relative custom-scrollbar">
 					<div class="w-[455px] flex flex-col gap-5 shrink-0">
-						<a href="details.html" class="card py-[2px]">
+						@forelse ($tentang_kami_posts as $post )
+						<a href="{{route('front.details', $post->slug)}}" class="card py-[2px]">
 							<div class="rounded-[20px] border border-[#EEF0F7] p-[14px] flex items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
 								<div class="w-[130px] h-[100px] flex shrink-0 rounded-[20px] overflow-hidden">
 									<img src="{{Storage::url($post->thumbnail)}}" class="object-cover w-full h-full" alt="thumbnail" />
 								</div>
 								<div class="flex flex-col justify-center-center gap-[6px]">
-									<h3 class="font-bold text-lg leading-[27px]">Kepala Laboratorium Smk Al-Hafidz Leuwiliang</h3>
-									<p class="text-sm leading-[21px] text-[#A3A6AE]">{{$post->created_at->format('M d, Y')}}</p>
-                                    </div>
+
+                                <h3 class="font-bold text-lg leading-[27px]"style="color:yellow">{{$post->judul}}</h3>
+
+									<p class="text-sm leading-[21px] text-[#A3A6AE]">{{$post->created_at->format('M d, Y') }}</p>
 								</div>
 							</div>
 						</a>
-						<a href="details.html" class="card py-[2px]">
-							<div class="rounded-[20px] border border-[#EEF0F7] p-[14px] flex items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
-								<div class="w-[130px] h-[100px] flex shrink-0 rounded-[20px] overflow-hidden">
-									<img src="assets/images/thumbnails/th-key.png" class="object-cover w-full h-full" alt="thumbnail" />
-								</div>
-								<div class="flex flex-col justify-center-center gap-[6px]">
-									<h3 class="font-bold text-lg leading-[27px]">Ketua Aslab</h3>
-									<p class="text-sm leading-[21px] text-[#A3A6AE]">{{$post->created_at->format('M d, Y')}}</p>
-                                    </div>
-								</div>
-							</div>
-						</a>
-						<a href="details.html" class="card py-[2px]">
-							<div class="rounded-[20px] border border-[#EEF0F7] p-[14px] flex items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
-								<div class="w-[130px] h-[100px] flex shrink-0 rounded-[20px] overflow-hidden">
-									<img src="assets/images/thumbnails/camp.png" class="object-cover w-full h-full" alt="thumbnail" />
-								</div>
-								<div class="flex flex-col justify-center-center gap-[6px]">
-									<h3 class="font-bold text-lg leading-[27px]">Apa itu Aslab</h3>
-									<p class="text-sm leading-[21px] text-[#A3A6AE]">{{$post->created_at->format('M d, Y')}}</p>
-                                    </div>
-								</div>
-							</div>
+                        @empty
+                        <p>Kosong</p>
+                        @endforelse
+					</div>
+					<div class="sticky z-10 bottom-0 w-full h-[100px] bg-gradient-to-b from-[rgba(52, 8, 248, 0.19)] to-[rgba(255,255,255,1)]"></div>
+				</div>
+			</div>
+		</section>
 		<script src="{{ asset('customjs/two-lines-text.js') }}"></script>
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 		<!-- JavaScript -->
 		<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 		<script src="{{ asset('customjs/carousel.js') }}"></script>
+        <br>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.081327600044!2d106.63161827411798!3d-6.636822093357611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69d7529a258b63%3A0x25d4e941025584e4!2sSMK%20Al%20Hafidz%20Leuwiliang!5e0!3m2!1sid!2sid!4v1745281035691!5m2!1sid!2sid" width="500" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 	</body>
 </html>
